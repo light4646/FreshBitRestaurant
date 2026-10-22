@@ -31,3 +31,20 @@ Both of us
 - Build and test the full program together once all the parts are ready.
 - Add the required function-planning table to the README before writing function bodies, then update the final columns as we finish. The test log also needs to be in the README for submission.
 - Include the design, required input files, commit screenshots showing both accounts, and a screenshot of the finished program running.
+
+Items constructor plan (before implementation)
+Assigned to: Nour
+Planned return type: none (constructor)
+Planned parameters: const string& name, int quantity, double price
+Set the product name, available quantity, and price from the supplied values.
+Final return type and parameters: none (constructor); const string& name, int quantity, double price
+Reason for change: none
+
+Constructor check
+Tester: automated AI-assisted check, not Nour's or Brian's independent test
+Input: Fruit Bowl, 12, 4.50; Water, 0, 0.0
+Expected: each object stores its own supplied name, quantity, and price.
+Actual: passed, including the name with spaces and zero stock/price.
+Built with C++17 warnings enabled; no warnings or errors.
+Temporary test-only getters were used because Brian's getters are not implemented yet. They were not added to functions.cpp.
+Nour's and Brian's independent constructor tests are still pending. The full program has not been built or tested.
