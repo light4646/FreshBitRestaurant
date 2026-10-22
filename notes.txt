@@ -1,0 +1,4 @@
+3 files
+    1- main.cpp
+    2- header file 
+    3- source
