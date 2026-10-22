@@ -41,4 +41,33 @@ public:
     void displayMenu(ostream& out) const;
 };
 
+class Orders {
+private:
+    int orderNumber = 1;
+    vector<Items> orderItems;
+    vector<int> quantities;
+    double total = 0.0;
+    string receipt;
+
+public:
+    int getOrderNumber() const;
+    vector<Items> getOrderItems() const;
+    vector<int> getQuantities() const;
+    double getTotal() const;
+    string getReceipt() const;
+
+    void setOrderNumber(int value);
+    void setOrderItems(const vector<Items>& value);
+    void setQuantities(const vector<int>& value);
+    void setTotal(double value);
+    void setReceipt(const string& value);
+
+    // index starts at 0; return false for invalid input or insufficient stock.
+    bool addItems(vector<Items>& inventory, int index, int quantity);
+    // taxRate is a decimal (0.08 = 8%); tip is a dollar amount.
+    void calculateTotal(double taxRate, double tip);
+    void generateReceipt(double taxRate, double tip);
+    void printReceipt(ostream& out) const;
+};
+
 #endif
