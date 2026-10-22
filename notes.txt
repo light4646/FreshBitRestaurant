@@ -1,22 +1,33 @@
-3 files
-    1- main.cpp
-    2- header file 
-    3- source
+FreshBitRestaurant - work split
 
-Nour
-- Four class definitions and declarations
-- Inventory file loading
-- Adding and displaying inventory
-- Adding and displaying menu items
-- Receipt generation and printing
-- Main program flow
-Brian
-- All getters and setters
-- Adding products to orders
-- Selection, quantity, and stock validation
-- Combining repeated selections
-- Updating remaining stock
-- Calculating totals, tax, and tip
-Both
-- Independently test every function and the complete program
-The professor still requires the planning table and test log in the README for final submission; they’re removed for now as requested.
+We are using three main files:
+- Header.h for the classes and function declarations
+- functions.cpp for the function definitions
+- main.cpp to run the program
+
+Nour (light4646) - owner
+- Set up all four classes in Header.h. This part is done and pushed.
+- Write the Items constructor to set a product's name, quantity, and price.
+- Load the inventory from a file and show an error if it cannot be opened.
+- Add products to the inventory and display them.
+- Add products to the menu and show a numbered menu with prices and available quantities.
+- Generate and print the receipt with the items, quantities, prices, tax, tip, and total.
+- Write main.cpp to connect everything: loading inventory, showing the menu, taking input, continuing orders, and checking out.
+
+Brian (BrianMcManus115) - contributor
+- Write all getters and setters for the four classes.
+- Add the customer's selections to the order.
+- Check for invalid selections, quantities of zero or less, and requests that exceed the remaining stock.
+- Add to the existing quantity when the same product is selected again.
+- Update the stock after an order selection is accepted.
+- Calculate the order total, including tax and an optional tip.
+
+Both of us
+- Check that our function names, parameters, and return types match before coding.
+- Test each function we write, then commit and push it separately.
+- Pull each other's changes and test them independently too.
+- Keep a test log with the input, expected result, and actual result. Only record tests we actually run.
+- Test and commit bug fixes separately.
+- Build and test the full program together once all the parts are ready.
+- Add the required function-planning table to the README before writing function bodies, then update the final columns as we finish. The test log also needs to be in the README for submission.
+- Include the design, required input files, commit screenshots showing both accounts, and a screenshot of the finished program running.
