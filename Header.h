@@ -10,8 +10,8 @@ using namespace std;
 class Items {
 private:
     string name;
-    int quantity = 0;
-    double price = 0.0;
+    int quantity;
+    double price;
 
 public:
     Items(const string& name, int quantity, double price);
