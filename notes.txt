@@ -2,3 +2,21 @@
     1- main.cpp
     2- header file 
     3- source
+
+Nour
+- Four class definitions and declarations
+- Inventory file loading
+- Adding and displaying inventory
+- Adding and displaying menu items
+- Receipt generation and printing
+- Main program flow
+Brian
+- All getters and setters
+- Adding products to orders
+- Selection, quantity, and stock validation
+- Combining repeated selections
+- Updating remaining stock
+- Calculating totals, tax, and tip
+Both
+- Independently test every function and the complete program
+The professor still requires the planning table and test log in the README for final submission; they’re removed for now as requested.
