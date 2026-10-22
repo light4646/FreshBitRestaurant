@@ -70,4 +70,26 @@ public:
     void printReceipt(ostream& out) const;
 };
 
+class FreshBitRestaurant {
+private:
+    vector<Items> inventory;
+    int size = 0;
+    string name = "FreshBitRestaurant";
+
+public:
+    string getName() const;
+    vector<Items> getItems() const;
+    int getSize() const;
+
+    void setName(const string& value);
+    // Update size when replacing inventory.
+    void setItems(const vector<Items>& value);
+    // Only accept a size that matches the number of inventory items.
+    void setSize(int value);
+
+    void addItems(const Items& item);
+    void displayInventory(ostream& out) const;
+    bool loadInventory(const string& filename, ostream& errors);
+};
+
 #endif
