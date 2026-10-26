@@ -190,3 +190,7 @@ void Orders::printReceipt(ostream& out) const {
 int Items::getQuantity() const {
     return quantity;
 }
+
+double Items::getPrice() const {
+    return price;
+}
