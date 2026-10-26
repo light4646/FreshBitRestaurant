@@ -279,3 +279,10 @@ double Orders::getTotal() const {
 string Orders::getReceipt() const {
     return receipt;
 }
+
+void Orders::setOrderNumber(int value) {
+    if (value <= 0) {
+        throw invalid_argument("Order number must be positive.");
+    }
+    orderNumber = value;
+}
