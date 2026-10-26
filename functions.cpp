@@ -224,3 +224,7 @@ vector<Items> FreshBitRestaurant::getItems() const {
 int FreshBitRestaurant::getSize() const {
     return size;
 }
+
+void FreshBitRestaurant::setName(const string& value) {
+    name = value;
+}
