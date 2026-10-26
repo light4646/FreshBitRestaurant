@@ -352,3 +352,27 @@ bool Orders::addItems(vector<Items>& inventory, int index, int quantity) {
     receipt.clear();
     return true;
 }
+
+void Orders::calculateTotal(double taxRate, double tip) {
+    if (!isfinite(taxRate) || taxRate < 0 || !isfinite(tip) || tip < 0) {
+        throw invalid_argument("Tax and tip must be nonnegative finite numbers.");
+    }
+    if (orderItems.size() != quantities.size()) {
+        throw invalid_argument("Order items and quantities do not match.");
+    }
+
+    double subtotal = 0.0;
+    for (size_t i = 0; i < orderItems.size(); ++i) {
+        double price = orderItems[i].getPrice();
+        if (quantities[i] <= 0 || !isfinite(price) || price < 0) {
+            throw invalid_argument("The order contains an invalid price or quantity.");
+        }
+        subtotal += price * quantities[i];
+    }
+
+    double calculatedTotal = subtotal + subtotal * taxRate + tip;
+    if (!isfinite(calculatedTotal)) {
+        throw overflow_error("The order amount is too large.");
+    }
+    total = calculatedTotal;
+}
