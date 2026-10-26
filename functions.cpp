@@ -100,3 +100,19 @@ void FreshBitRestaurant::displayInventory(ostream& out) const {
 void Menu::addItem(const Items& item) {
     menuItems.push_back(item);
 }
+
+void Menu::displayMenu(ostream& out) const {
+    if (menuItems.empty()) {
+        out << "No products on the menu.\n";
+        return;
+    }
+
+    ostringstream display;
+    display << menuName << '\n' << fixed << setprecision(2);
+    for (size_t i = 0; i < menuItems.size(); ++i) {
+        display << i + 1 << ". " << menuItems[i].getName()
+                << " | Price: $" << menuItems[i].getPrice()
+                << " | Available: " << menuItems[i].getQuantity() << '\n';
+    }
+    out << display.str();
+}
