@@ -80,3 +80,19 @@ bool FreshBitRestaurant::loadInventory(const string& filename, ostream& errors) 
     size = static_cast<int>(inventory.size());
     return true;
 }
+
+void FreshBitRestaurant::displayInventory(ostream& out) const {
+    if (inventory.empty()) {
+        out << "Inventory is empty.\n";
+        return;
+    }
+
+    ostringstream display;
+    display << "Inventory\n" << fixed << setprecision(2);
+    for (const Items& item : inventory) {
+        display << item.getName()
+                << " | Available: " << item.getQuantity()
+                << " | Price: $" << item.getPrice() << '\n';
+    }
+    out << display.str();
+}
