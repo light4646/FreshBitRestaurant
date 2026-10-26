@@ -255,3 +255,7 @@ vector<Items> Menu::getMenuItems() const {
 void Menu::setMenuName(const string& value) {
     menuName = value;
 }
+
+void Menu::setMenuItems(const vector<Items>& value) {
+    menuItems = value;
+}
