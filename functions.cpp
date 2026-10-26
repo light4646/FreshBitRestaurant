@@ -194,3 +194,7 @@ int Items::getQuantity() const {
 double Items::getPrice() const {
     return price;
 }
+
+void Items::setName(const string& value) {
+    name = value;
+}
