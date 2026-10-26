@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iomanip>
 #include <limits>
+#include <map>
+#include <stdexcept>
 #include <set>
 #include <sstream>
 
@@ -115,4 +117,68 @@ void Menu::displayMenu(ostream& out) const {
                 << " | Available: " << menuItems[i].getQuantity() << '\n';
     }
     out << display.str();
+}
+
+void Orders::generateReceipt(double taxRate, double tip) {
+    if (!isfinite(taxRate) || taxRate < 0 || !isfinite(tip) || tip < 0) {
+        throw invalid_argument("Tax and tip must be nonnegative numbers.");
+    }
+    if (orderItems.size() != quantities.size()) {
+        throw invalid_argument("Order items and quantities do not match.");
+    }
+
+    // Store one price and combined quantity for each product name.
+    map<string, pair<double, long long>> receiptItems;
+    for (size_t i = 0; i < orderItems.size(); ++i) {
+        string itemName = orderItems[i].getName();
+        double itemPrice = orderItems[i].getPrice();
+        if (itemName.empty() || quantities[i] <= 0 ||
+            !isfinite(itemPrice) || itemPrice < 0) {
+            throw invalid_argument("The order contains an invalid product.");
+        }
+
+        auto found = receiptItems.find(itemName);
+        if (found == receiptItems.end()) {
+            receiptItems[itemName] = make_pair(itemPrice, quantities[i]);
+        } else {
+            if (found->second.first != itemPrice) {
+                throw invalid_argument("Repeated products must have the same unit price.");
+            }
+            found->second.second += quantities[i];
+        }
+    }
+
+    ostringstream output;
+    output << fixed << setprecision(2);
+    output << "FreshBitRestaurant\nReceipt - Order #" << orderNumber << '\n';
+    if (receiptItems.empty()) {
+        output << "No items ordered.\n";
+    }
+
+    double subtotal = 0.0;
+    for (const auto& entry : receiptItems) {
+        double unitPrice = entry.second.first;
+        long long quantity = entry.second.second;
+        double lineTotal = unitPrice * quantity;
+        output << entry.first << " | Qty: " << quantity
+               << " | Unit price: $" << unitPrice
+               << " | Line total: $" << lineTotal << '\n';
+        subtotal += lineTotal;
+    }
+
+    double tax = subtotal * taxRate;
+    if (!isfinite(subtotal) || !isfinite(tax) || !isfinite(subtotal + tax + tip)) {
+        throw overflow_error("The order amount is too large.");
+    }
+
+    // Brian's function sets the final total, including tax and tip.
+    calculateTotal(taxRate, tip);
+    if (!isfinite(total) || total < 0) {
+        throw invalid_argument("The calculated order total is invalid.");
+    }
+    output << "Subtotal: $" << subtotal << '\n'
+           << "Tax: $" << tax << '\n'
+           << "Tip: $" << tip << '\n'
+           << "Total: $" << total << '\n';
+    receipt = output.str();
 }
