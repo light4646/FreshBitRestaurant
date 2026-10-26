@@ -182,3 +182,7 @@ void Orders::generateReceipt(double taxRate, double tip) {
            << "Total: $" << total << '\n';
     receipt = output.str();
 }
+
+void Orders::printReceipt(ostream& out) const {
+    out << receipt;
+}
