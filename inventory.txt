@@ -1,0 +1,3 @@
+"Fruit Bowl" 12 4.50
+"Chicken Sandwich" 10 7.25
+"Water" 20 1.50
