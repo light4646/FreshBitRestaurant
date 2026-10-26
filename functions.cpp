@@ -310,3 +310,45 @@ void Orders::setTotal(double value) {
 void Orders::setReceipt(const string& value) {
     receipt = value;
 }
+
+bool Orders::addItems(vector<Items>& inventory, int index, int quantity) {
+    if (index < 0 || static_cast<size_t>(index) >= inventory.size() || quantity <= 0) {
+        return false;
+    }
+    const Items& item = inventory[index];
+    if (quantity > item.getQuantity() || item.getName().empty() ||
+        !isfinite(item.getPrice()) || item.getPrice() < 0 ||
+        orderItems.size() != quantities.size()) {
+        return false;
+    }
+
+    size_t position = orderItems.size();
+    for (size_t i = 0; i < orderItems.size(); ++i) {
+        if (quantities[i] <= 0) {
+            return false;
+        }
+        if (orderItems[i].getName() == item.getName()) {
+            if (orderItems[i].getPrice() != item.getPrice() ||
+                quantities[i] > numeric_limits<int>::max() - quantity) {
+                return false;
+            }
+            position = i;
+        }
+    }
+
+    vector<Items> updatedItems = orderItems;
+    vector<int> updatedQuantities = quantities;
+    if (position == orderItems.size()) {
+        updatedItems.push_back(item);
+        updatedQuantities.push_back(quantity);
+    } else {
+        updatedQuantities[position] += quantity;
+    }
+
+    inventory[index].setQuantity(item.getQuantity() - quantity);
+    orderItems.swap(updatedItems);
+    quantities.swap(updatedQuantities);
+    total = 0.0;
+    receipt.clear();
+    return true;
+}
