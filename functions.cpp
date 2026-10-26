@@ -228,3 +228,11 @@ int FreshBitRestaurant::getSize() const {
 void FreshBitRestaurant::setName(const string& value) {
     name = value;
 }
+
+void FreshBitRestaurant::setItems(const vector<Items>& value) {
+    if (value.size() > static_cast<size_t>(numeric_limits<int>::max())) {
+        throw invalid_argument("Too many inventory products.");
+    }
+    inventory = value;
+    size = static_cast<int>(inventory.size());
+}
