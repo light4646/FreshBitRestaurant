@@ -247,3 +247,7 @@ void FreshBitRestaurant::setSize(int value) {
 string Menu::getMenuName() const {
     return menuName;
 }
+
+vector<Items> Menu::getMenuItems() const {
+    return menuItems;
+}
