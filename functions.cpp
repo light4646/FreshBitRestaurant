@@ -212,3 +212,7 @@ void Items::setPrice(double value) {
     }
     price = value;
 }
+
+string FreshBitRestaurant::getName() const {
+    return name;
+}
