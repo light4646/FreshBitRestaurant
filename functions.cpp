@@ -216,3 +216,7 @@ void Items::setPrice(double value) {
 string FreshBitRestaurant::getName() const {
     return name;
 }
+
+vector<Items> FreshBitRestaurant::getItems() const {
+    return inventory;
+}
