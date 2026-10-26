@@ -299,3 +299,10 @@ void Orders::setQuantities(const vector<int>& value) {
     }
     quantities = value;
 }
+
+void Orders::setTotal(double value) {
+    if (!isfinite(value) || value < 0) {
+        throw invalid_argument("Total must be a nonnegative finite number.");
+    }
+    total = value;
+}
