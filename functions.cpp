@@ -275,3 +275,7 @@ vector<int> Orders::getQuantities() const {
 double Orders::getTotal() const {
     return total;
 }
+
+string Orders::getReceipt() const {
+    return receipt;
+}
