@@ -205,3 +205,10 @@ void Items::setQuantity(int value) {
     }
     quantity = value;
 }
+
+void Items::setPrice(double value) {
+    if (!isfinite(value) || value < 0) {
+        throw invalid_argument("Price must be a nonnegative finite number.");
+    }
+    price = value;
+}
