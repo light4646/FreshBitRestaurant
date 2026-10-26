@@ -267,3 +267,7 @@ int Orders::getOrderNumber() const {
 vector<Items> Orders::getOrderItems() const {
     return orderItems;
 }
+
+vector<int> Orders::getQuantities() const {
+    return quantities;
+}
