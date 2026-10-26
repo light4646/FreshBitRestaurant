@@ -271,3 +271,7 @@ vector<Items> Orders::getOrderItems() const {
 vector<int> Orders::getQuantities() const {
     return quantities;
 }
+
+double Orders::getTotal() const {
+    return total;
+}
