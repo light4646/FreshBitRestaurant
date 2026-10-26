@@ -290,3 +290,12 @@ void Orders::setOrderNumber(int value) {
 void Orders::setOrderItems(const vector<Items>& value) {
     orderItems = value;
 }
+
+void Orders::setQuantities(const vector<int>& value) {
+    for (int quantity : value) {
+        if (quantity <= 0) {
+            throw invalid_argument("Ordered quantities must be positive.");
+        }
+    }
+    quantities = value;
+}
