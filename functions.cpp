@@ -12,3 +12,8 @@ string Items::getName() const {
     return name;
 }
 
+void FreshBitRestaurant::addItems(const Items& item) {
+    inventory.push_back(item);
+    size = static_cast<int>(inventory.size());
+}
+
