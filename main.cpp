@@ -117,7 +117,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // generateReceipt calls Brian's calculateTotal before saving the receipt.
+        // generateReceipt calls calculateTotal before saving the receipt.
         order.generateReceipt(amounts[0] / 100.0, amounts[1]);
         order.printReceipt(cout);
     } catch (const exception& error) {

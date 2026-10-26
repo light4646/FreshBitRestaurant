@@ -31,3 +31,6 @@ Both of us
 - Build and test the full program together once all the parts are ready.
 - Add the required function-planning table to the README before writing function bodies, then update the final columns as we finish. The test log also needs to be in the README for submission.
 - Include the design, required input files, commit screenshots showing both accounts, and a screenshot of the finished program running.
+
+Work split update
+Nour took over the remaining functions originally assigned to Brian. The original split above is kept for reference. Brian's existing Items::getName implementation was kept. The remaining implementations were committed under Nour's account, one function per commit.

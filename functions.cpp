@@ -171,7 +171,7 @@ void Orders::generateReceipt(double taxRate, double tip) {
         throw overflow_error("The order amount is too large.");
     }
 
-    // Brian's function sets the final total, including tax and tip.
+    // Calculate the final total, including tax and tip.
     calculateTotal(taxRate, tip);
     if (!isfinite(total) || total < 0) {
         throw invalid_argument("The calculated order total is invalid.");
