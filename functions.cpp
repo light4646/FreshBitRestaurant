@@ -96,3 +96,7 @@ void FreshBitRestaurant::displayInventory(ostream& out) const {
     }
     out << display.str();
 }
+
+void Menu::addItem(const Items& item) {
+    menuItems.push_back(item);
+}
