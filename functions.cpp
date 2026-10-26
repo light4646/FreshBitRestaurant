@@ -236,3 +236,10 @@ void FreshBitRestaurant::setItems(const vector<Items>& value) {
     inventory = value;
     size = static_cast<int>(inventory.size());
 }
+
+void FreshBitRestaurant::setSize(int value) {
+    if (value < 0 || static_cast<size_t>(value) != inventory.size()) {
+        throw invalid_argument("Size must match the number of inventory products.");
+    }
+    size = value;
+}
