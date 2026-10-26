@@ -198,3 +198,10 @@ double Items::getPrice() const {
 void Items::setName(const string& value) {
     name = value;
 }
+
+void Items::setQuantity(int value) {
+    if (value < 0) {
+        throw invalid_argument("Quantity cannot be negative.");
+    }
+    quantity = value;
+}
