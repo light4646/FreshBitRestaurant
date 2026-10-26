@@ -263,3 +263,7 @@ void Menu::setMenuItems(const vector<Items>& value) {
 int Orders::getOrderNumber() const {
     return orderNumber;
 }
+
+vector<Items> Orders::getOrderItems() const {
+    return orderItems;
+}
