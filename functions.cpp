@@ -286,3 +286,7 @@ void Orders::setOrderNumber(int value) {
     }
     orderNumber = value;
 }
+
+void Orders::setOrderItems(const vector<Items>& value) {
+    orderItems = value;
+}
