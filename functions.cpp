@@ -186,3 +186,7 @@ void Orders::generateReceipt(double taxRate, double tip) {
 void Orders::printReceipt(ostream& out) const {
     out << receipt;
 }
+
+int Items::getQuantity() const {
+    return quantity;
+}
