@@ -306,3 +306,7 @@ void Orders::setTotal(double value) {
     }
     total = value;
 }
+
+void Orders::setReceipt(const string& value) {
+    receipt = value;
+}
