@@ -220,3 +220,7 @@ string FreshBitRestaurant::getName() const {
 vector<Items> FreshBitRestaurant::getItems() const {
     return inventory;
 }
+
+int FreshBitRestaurant::getSize() const {
+    return size;
+}
