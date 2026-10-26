@@ -251,3 +251,7 @@ string Menu::getMenuName() const {
 vector<Items> Menu::getMenuItems() const {
     return menuItems;
 }
+
+void Menu::setMenuName(const string& value) {
+    menuName = value;
+}
